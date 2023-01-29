@@ -28,8 +28,8 @@ const option = {
   saveUninitialized: false,
   cookie: {
     httpOnly: true, // solo accesible por el servidor
-    secure: true, // solo enviar la cookie a través de HTTPS
-    maxAge: 60 * 60 * 1000 // 1 hora
+    secure: false, // true para solo enviar la cookie a través de HTTPS ojito con eso que para modo desarrollo es false si no no pasa la cookie
+    maxAge: 1 * 60 * 1000 // la formula para 1 Hora es  60*60*100
   }
 }
 // config.SECRET

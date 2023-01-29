@@ -33,16 +33,16 @@ export async function newSession(req, res, next) {
   try {
    
     const usuario = req.user;
-
-       
+    
         req.session.active = true;
-        if (usuario.role == "admin") {
-          req.session.administrador = true;
+        if ( usuario.rol === 'admin') {
+          req.session.administrador= true;
         } else {
-          req.session.administrador = false;
+          req.session.administrador= false;
         }
         req.session.email = usuario.email;
         req.session.name = usuario.nombre;
+       
         res.status(200).render("partials/usuario", { usuario: usuario });
       
     

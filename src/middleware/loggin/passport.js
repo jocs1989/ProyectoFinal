@@ -39,7 +39,7 @@ export function configPassport(passport) {
 
   passport.deserializeUser(function (user, cb) {
     process.nextTick(function () {
-      return cb(null, user);
+      return cb(null, { id:user._id,email: user.email,rol:user.role,nombre:user.nombre});
     });
   });
 }

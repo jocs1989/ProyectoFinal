@@ -1,5 +1,7 @@
-export function isAdmin (req, res, next) {
-  console.log(req.session.administrador)
+export function isAdmin(req, res, next){
+
+console.log(req.passport)
+ 
   if (req.session.administrador) {
     next()
   } else {
