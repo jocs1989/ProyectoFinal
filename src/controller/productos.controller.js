@@ -31,7 +31,8 @@ export async function  getAllProducts  (req, res)  {
       // res.status(200).render('partials/productos',{artuculos: respuesta});
       if(req.session.administrador){
         
-        res.status(200).render('partials/registro', { artuculos: getArticulos })
+        //res.status(200).render('partials/registro', { artuculos: getArticulos })  sirve para agregar productos como administrador canceldo por practicidad
+        res.status(200).render('partials/productos', { artuculos: getArticulos })
       }else {
         res.status(200).render('partials/productos', { artuculos: getArticulos })
       }

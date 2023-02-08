@@ -1,10 +1,10 @@
-import Carrito from './carrito.router.js'
-import Filtro from './filtro.routes.js'
-import Productos from './pruductos.router.js'
-import ProductosTest from './pruductos.mocks.router.js'
-import Chat from './chat.router.js'
-import User from './user.router.js'
-import Login from './logout.router.js'
+import Carrito from './carrito.router.js';
+import Chat from './chat.router.js';
+import Filtro from './filtro.routes.js';
+import Login from './logout.router.js';
+import ProductosTest from './pruductos.mocks.router.js';
+import Productos from './pruductos.router.js';
+import User from './user.router.js';
 
 function managerRouter (app) {
   // administrar las rutas del negocio
@@ -15,6 +15,7 @@ function managerRouter (app) {
   app.use('/api/chat/', Chat)
   app.use('/api/user/', User)
   app.use('/api/login/', Login)
+  app.use('/', Productos)
   app.use('*', Filtro)
 }
 

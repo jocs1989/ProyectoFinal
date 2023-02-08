@@ -1,8 +1,10 @@
 export class DtoProductos{
     constructor(productos){
+        let n=0;
 
         this.data=productos.map(items => {
             return {
+                n:n++,
                 id:items.id,
                 nombre:items.nombre,
                 codigo:items.codigo,

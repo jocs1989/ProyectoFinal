@@ -29,6 +29,8 @@
 
     <!-- Modernizr JS -->
     <script src="../../static/js/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="../../static/js/operaciones.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
@@ -74,40 +76,40 @@
                                     </li>
                                     <li>
                                         <div class="header-cart">
-                                            <div class="cart-icon"> <a href="https://template.hasthemes.com/clothing/clothing/shop-full-grid.html">Cart<i class="zmdi zmdi-shopping-cart"></i></a>
-                                                <span>2</span> </div>
+                                            <div class="cart-icon" id="nombreCarrito"> <a href="#">Cart<i class="zmdi zmdi-shopping-cart"></i></a>
+                                                <span class="itemsCarrito">0</span> </div>
                                             <div class="cart-content-wraper">
                                                 <div class="cart-single-wraper">
                                                     <div class="cart-img">
-                                                        <a href="https://template.hasthemes.com/clothing/clothing/shop-full-grid.html"><img src="images/product/01.jpg.jpeg" alt=""></a>
+                                                        <a href="#"><img src="images/product/01.jpg.jpeg" alt=""></a>
                                                     </div>
                                                     <div class="cart-content">
-                                                        <div class="cart-name"> <a href="https://template.hasthemes.com/clothing/clothing/shop-full-grid.html">Aenean Eu Tristique</a>
+                                                        <div class="cart-name"> <a href="#">Aenean Eu Tristique</a>
                                                         </div>
                                                         <div class="cart-price"> $70.00 </div>
                                                         <div class="cart-qty"> Qty: <span>1</span> </div>
                                                     </div>
-                                                    <div class="remove"> <a href="https://template.hasthemes.com/clothing/clothing/shop-full-grid.html"><i class="zmdi zmdi-close"></i></a>
+                                                    <div class="remove"> <a href="#"><i class="zmdi zmdi-close"></i></a>
                                                     </div>
                                                 </div>
                                                 <div class="cart-single-wraper">
                                                     <div class="cart-img">
-                                                        <a href="https://template.hasthemes.com/clothing/clothing/shop-full-grid.html"><img src="images/product/02.jpg.jpeg" alt=""></a>
+                                                        <a href="#"><img src="images/product/02.jpg.jpeg" alt=""></a>
                                                     </div>
                                                     <div class="cart-content">
-                                                        <div class="cart-name"> <a href="https://template.hasthemes.com/clothing/clothing/shop-full-grid.html">Aenean Eu Tristique</a>
+                                                        <div class="cart-name"> <a href="#">Aenean Eu Tristique</a>
                                                         </div>
                                                         <div class="cart-price"> $70.00 </div>
                                                         <div class="cart-qty"> Qty: <span>1</span> </div>
                                                     </div>
-                                                    <div class="remove"> <a href="https://template.hasthemes.com/clothing/clothing/shop-full-grid.html"><i class="zmdi zmdi-close"></i></a>
+                                                    <div class="remove"> <a href="#"><i class="zmdi zmdi-close"></i></a>
                                                     </div>
                                                 </div>
                                                 <div class="cart-subtotal"> Subtotal: <span>$200.00</span> </div>
                                                 <div class="cart-check-btn">
-                                                    <div class="view-cart"> <a class="btn-def" href="https://template.hasthemes.com/clothing/clothing/cart.html">View
+                                                    <div class="view-cart"> <a class="btn-def" href="#">View
                                                             Cart</a> </div>
-                                                    <div class="check-btn"> <a class="btn-def" href="https://template.hasthemes.com/clothing/clothing/checkout.html">Checkout</a>
+                                                    <div class="check-btn"> <a class="btn-def" href="#">Checkout</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -124,7 +126,7 @@
                     <div class="full-width-mega-dropdown">
                         <div class="row">
                             <div class="col-md-2">
-                                <div class="logo ptb-20"><a href="https://template.hasthemes.com/clothing/clothing/index.html">
+                                <div class="logo ptb-20"><a href="#">
                                         <img src="../../static/images/logo/logo.png" alt="main logo"></a>
                                 </div>
                             </div>
@@ -327,69 +329,36 @@
                                         <div class="tab-content active-portfolio-area-2">
                                             <div role="tabpanel" class="tab-pane active" id="view1">
                                                 <div class="product-img">
-                                                    <a href="#"><img src="../../static/images/product/01.jpg" alt="Single portfolio"></a>
+                                                    <a href="#"><img id="nombreImagen" src="#" alt="Single portfolio"></a>
                                                 </div>
                                             </div>
-                                            <div role="tabpanel" class="tab-pane" id="view2">
-                                                <div class="product-img">
-                                                    <a href="#"><img src="../../static/images/product/02.jpg" alt="Single portfolio"></a>
-                                                </div>
-                                            </div>
-                                            <div role="tabpanel" class="tab-pane" id="view3">
-                                                <div class="product-img">
-                                                    <a href="#"><img src="../../static/images/product/03.jpg" alt="Single portfolio"></a>
-                                                </div>
-                                            </div>
-                                            <div role="tabpanel" class="tab-pane" id="view4">
-                                                <div class="product-img">
-                                                    <a href="#"><img src="../../static/images/product/04.jpg" alt="Single portfolio"></a>
-                                                </div>
-                                            </div>
+                                            
                                         </div>
                                         <div class="product-more-views-2">
-                                            <div class="thumbnail-carousel-modal-2 nav" data-tabs="tabs">
-                                                <li class="nav-item" role="presentation">
-                                                    <a class="nav-link active" id="view1" data-bs-toggle="tab" href="#view1" role="tab" aria-controls="view1" aria-selected="true">
-                                                        <img src="../../static/images/product/01.jpg" alt="">
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item" role="presentation">
-                                                    <a class="nav-link" id="view2" data-bs-toggle="tab" href="#view2" role="tab" aria-controls="view2" aria-selected="true">
-                                                        <img src="../../static/images/product/02.jpg" alt="">
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item" role="presentation">
-                                                    <a class="nav-link" id="view3" data-bs-toggle="tab" href="#view3" role="tab" aria-controls="view3" aria-selected="true">
-                                                        <img src="../../static/images/product/03.jpg" alt="">
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item" role="presentation">
-                                                    <a class="nav-link" id="view4" data-bs-toggle="tab" href="#view4" role="tab" aria-controls="view4" aria-selected="true">
-                                                        <img src="images/product/04.jpg" alt="">
-                                                    </a>
-                                                </li>
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
                                 <!--modal tab end-->
                                 <!-- .product-images -->
                                 <div class="product-info">
-                                    <h1>Aenean eu tristique</h1>
+                                    <h1 id="nombreProducto"></h1>
                                     <div class="price-box-3">
-                                        <div class="s-price-box"> <span class="new-price">$160.00</span> <span class="old-price">$190.00</span> </div>
-                                    </div> <a href="shop.html" class="see-all">See all features</a>
+                                        <div class="s-price-box" > 
+                                            <span class="new-price" id="nombrePrecio">
+
+                                            </span> 
+                                            
+                                            </div>
+                                    </div> <a href="#" class="see-all">See all features</a>
                                     <div class="quick-add-to-cart">
                                         <form method="post" class="cart">
                                             <div class="numbers-row">
-                                                <input type="number" id="french-hens" value="3" min="1"> </div>
+                                                <input type="number" id="french-hens" value="1" min="1"> </div>
                                             <button class="single_add_to_cart_button" type="submit">Add to cart</button>
                                         </form>
                                     </div>
-                                    <div class="quick-desc"> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Nam fringilla augue nec est tristique auctor. Donec non est at libero.Lorem
-                                        ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est
-                                        tristique auctor. Donec non est at libero.Nam fringilla tristique auctor. </div>
+                                    <div class="quick-desc" id="nombreDescripcion"> </div>
                                     <div class="social-sharing-modal">
                                         <div class="widget widget_socialsharing_widget">
                                             <h3 class="widget-title-modal">Share this product</h3>

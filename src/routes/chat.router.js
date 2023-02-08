@@ -1,13 +1,13 @@
-import { Router } from 'express'
+import { Router } from 'express';
 
 import {
   allChats,
   chatId,
   deleteChat,
-  newUserChat
-} from '../controller/chat.controller.js'
-import { isAdmin } from '../middleware/permisos.js'
-import ClassChat from '../presistencia/dao/chat/index.js'
+  newUserChat,
+} from '../controller/chat.controller.js';
+import { isAdmin } from '../middleware/permisos.js';
+import ClassChat from '../presistencia/dao/chat/index.js';
 
 const router = Router();
 const datosAgregados = {};

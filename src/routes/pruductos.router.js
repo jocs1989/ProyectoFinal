@@ -10,9 +10,9 @@ import {
 import { isAdmin } from '../middleware/permisos.js';
 
 const router= Router();
-router.get('/', isAdmin,getAllProducts )
+router.get('/',getAllProducts )
 
-router.get('/:id',isAdmin, getProductsById)
+router.get('/:id', getProductsById)
 
 router.post('/', isAdmin, addProduct)
 

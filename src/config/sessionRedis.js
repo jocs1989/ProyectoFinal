@@ -29,7 +29,7 @@ const option = {
   cookie: {
     httpOnly: true, // solo accesible por el servidor
     secure: false, // true para solo enviar la cookie a través de HTTPS ojito con eso que para modo desarrollo es false si no no pasa la cookie
-    maxAge: 1 * 60 * 1000 // la formula para 1 Hora es  60*60*100
+    maxAge: 60* 60 * 1000 // la formula para 1 Hora es  60*60*1000
   }
 }
 // config.SECRET

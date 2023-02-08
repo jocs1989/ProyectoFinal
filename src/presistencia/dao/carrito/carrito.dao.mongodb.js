@@ -1,7 +1,9 @@
-import { Collection, opcionSchema } from '../../models/carrito.models.js'
-
-import Contenedora from '../../contenedor/contenedora.mongodb.js'
-import Productos from '../../dao/productos/index.js'
+import Contenedora from '../../contenedor/contenedora.mongodb.js';
+import Productos from '../../dao/productos/index.js';
+import {
+  Collection,
+  opcionSchema,
+} from '../../models/carrito.models.js';
 
 class Carrito extends Contenedora {
   constructor () {
@@ -25,15 +27,16 @@ class Carrito extends Contenedora {
         object.stock = cantidad
         return await this.save({ carrito: object, total: this.total })
       } else {
-        console.log('lo sentimos no hay stock')
+        throw new Error('No hay stock')
       }
     } catch (err) {
-      console.log(err)
+      throw new Error(err)
     }
   }
 
   async setAddProductCar (idCarrito, idArticulo, cantidad) {
     try {
+      console.log('idCarrito',idCarrito, 'idArticulo',idArticulo, "%",cantidad)
       const carritoViejo = await this.getById(idCarrito)
       const object = await this.articulos.getById(idArticulo)
       const precio = Number(object.precio)
@@ -52,10 +55,10 @@ class Carrito extends Contenedora {
         })
         return carritoViejo
       } else {
-        console.log('lo sentimos no hay stock')
+        throw new Error('No hay stock')
       }
     } catch (err) {
-      console.log(err)
+      throw new Error('No hay stock')
     }
   }
 
@@ -73,7 +76,7 @@ class Carrito extends Contenedora {
       })
       return await this.getById(idCarrito)
     } catch (err) {
-      throw new Error(err)
+      throw new Error('No hay stock')
     }
   }
 

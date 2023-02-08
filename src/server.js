@@ -1,3 +1,4 @@
+import cors from 'cors';
 import express from 'express';
 import fileUpload from 'express-fileupload';
 import path from 'path';
@@ -21,6 +22,22 @@ app.use('/static', express.static(__dirname + '/static')) // agrega metodos esta
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(fileUpload())
+//cores
+app.use(
+  cors()
+);
+
+// Your Express routes here
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
+});
+
+
+
+
+
 // session
 managerSessionRedis(app)
 
