@@ -25,7 +25,7 @@ function managerRouter(app) {
   app.use("/", Productos);
   app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(specs));
  
-  app.use("/api/qpl/", graphqlHTTP({
+  app.use("/api/gql/", graphqlHTTP({
     schema:ConfigGql.schema,
     rootValue:ConfigGql.resolvers,
   graphiql:true}));

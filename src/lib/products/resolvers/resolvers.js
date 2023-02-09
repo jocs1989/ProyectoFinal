@@ -1,12 +1,19 @@
-import Mocks from '../../../utils/mocks/productos.mocks.js';
+import Productos from '../../../presistencia/dao/productos/index.js';
 
-const prodctos = new Mocks();
-
+const articulos = Productos;
 
 export const resolvers = {
-  Query :{
+  Query: {
     getAllProdcts: async () => {
-      return await prodctos.getAll();
+      return await articulos.getAll();
     },
-  }
+    getProductsById: async (root, { id }) => {
+      return await articulos.getById(id);
+    },
+  },
+  Mutation: {
+    addProduct: async (root, { input }) => {
+      return await articulos.save(input);
+    },
+  },
 };
