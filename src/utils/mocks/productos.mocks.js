@@ -1,10 +1,10 @@
-import { faker } from '@faker-js/faker/locale/es_MX'
+import { faker } from '@faker-js/faker/locale/es_MX';
 
 class Contenedora {
   constructor () {
     this.datos = []
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 20; i++) {
       const nombre = faker.commerce.product()
       const producto = {
         _id: faker.database.mongodbObjectId(),

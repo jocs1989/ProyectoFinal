@@ -1,0 +1,13 @@
+type Products {
+  _id: ID
+  nombre: String
+  descripcion: String
+  codigo: String
+  url: String
+  precio: String
+  stock: String
+  timestamp: Int
+}
+type Query {
+  getAllProdcts: [Products ]
+}
