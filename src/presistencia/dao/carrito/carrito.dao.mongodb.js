@@ -13,6 +13,9 @@ class Carrito extends Contenedora {
 
   async setNewCar (id, cantidad) {
     try {
+      if(id==null || cantidad==null){
+        return await this.save()
+      }
       this.productos = 0
       this.contenedor = {}
       this.total = 0

@@ -1,13 +1,13 @@
-import bcrypt from 'bcrypt'
-import { createTransport } from 'nodemailer'
-import path from 'path'
-import Client from 'twilio'
-import { fileURLToPath } from 'url'
+import bcrypt from 'bcrypt';
+import { createTransport } from 'nodemailer';
+import path from 'path';
+import Client from 'twilio';
+import { fileURLToPath } from 'url';
 
-import * as Boom from '@hapi/boom'
+import * as Boom from '@hapi/boom';
 
-import config from '../config/index.js'
-import users from '../presistencia/dao/user/index.js'
+import config from '../config/index.js';
+import users from '../presistencia/dao/user/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -62,32 +62,25 @@ export async function newUser(req, res, next) {
       edad: req.body.edad,
       phone: req.body.phone,
       role: req.body.role,
+      file: req.body.file,
     };
-    const resultado = await users.getUsuario(usuario);
-    if (resultado === null) {
-      const pictureFile = req.files.file;
-      usuario.urlImg = `${__dirname}/../file/${pictureFile.name}`;
-      pictureFile.mv(
-        `${__dirname}/../file/${pictureFile.name}`,
-        async (err) => {
-          if (err) return res.status(500).send({ message: err });
 
-          await users.saveUser(usuario);
-          delete usuario.password;
-          console.log("Enviando mensaje");
-          //twilo(usuario)
-          res
-            .status(200)
-            .render("partials/login", { acceso: "usuario creado" });
-        }
-      );
+    const resultado = await users.getUsuario(usuario);
+
+    if (resultado === null) {
+      usuario.urlImg = `${__dirname}/../file/${usuario.file}`;
+
+      const respuesta=await users.saveUser(usuario);
+      console.log(respuesta)
+      delete usuario.password;
+      res.status(200).redirect("/api/user/login");
     } else {
-      next( Boom.notFound('El usuario ya existe cambia los datos'))
+      res.status(400).redirect("/api/user/login");
+      next(Boom.notFound("El usuario ya existe cambia los datos"));
     }
   } catch (err) {
-    next( Boom.notFound('El usuario ya existe cambia los datos'))
-    
-    
+    res.status(400).redirect("/api/user/login");
+    next(Boom.notFound("El usuario ya existe cambia los datos"));
   }
 }
 

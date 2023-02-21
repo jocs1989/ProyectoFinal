@@ -1,4 +1,5 @@
 import carrito from '../presistencia/dao/carrito/index.js';
+import { DTOCarrito } from '../presistencia/dto/carrito/carrito.dto.mongodb.js';
 
 export async function nuevoCarrito(req, res) {
   try {
@@ -28,7 +29,9 @@ export async function mostrarCarrito(req, res) {
     if (result === null) {
       throw new Error("No Existe el producto");
     } else {
-      res.status(200).json({ articulo: await result });
+      const dtoCarrito=new DTOCarrito(result).getArticulos()
+     
+      res.status(200).json({ articulo:  dtoCarrito });
     }
   } catch (err) {
     console.error(err);
@@ -36,7 +39,29 @@ export async function mostrarCarrito(req, res) {
   }
   //
 }
-
+export async function mostrarCarritoOrden(req, res) {
+  try {
+    const  id  =req.session.idCard ;
+    
+    const result = await carrito.getAllCar(id);   
+    
+      const dtoCarrito=new DTOCarrito(result).getArticulos()
+      let resultado=0
+      dtoCarrito.map((i)=>{
+        resultado=resultado +i.total
+        
+      })
+      console.log(resultado)
+         
+      res.status(200).render('partials/carrito', { artuculos: dtoCarrito,total:resultado})
+     
+    
+  } catch (err) {
+    console.error(err);
+    res.status(400).json({ error: err.toString() });
+  }
+  //
+}
 export async function agregarProductoCarrito(req, res) {
   try {
     const idCarrito = req.params.id;

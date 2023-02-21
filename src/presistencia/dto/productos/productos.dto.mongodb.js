@@ -12,6 +12,7 @@ export class DtoProductos{
                 precio:items.precio,
                 url:items.url,
                 stock:items.stock,
+                categoria:items.categoria,
                 timestamp:items.timestamp,
             }
           })

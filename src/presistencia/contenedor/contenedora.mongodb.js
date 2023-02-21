@@ -14,17 +14,18 @@ class Contenedora {
   }
 
   async save (object) {
-    await new this.bd(object).save()
-    return this.bd.find(object)
+    const productos =await new this.bd(object).save()
+    
+    return productos
   }
 
   async updateById (producto) {
     try {
       const filter = { _id: producto.id }
 
-      console.log('que hay aqui' + filter)
+      
       await this.bd.findOneAndUpdate(filter, producto)
-      return this.bd.findOne(filter)
+      return this.bd
     } catch (err) {
       throw new Error(err)
     }

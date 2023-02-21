@@ -13,6 +13,18 @@
 
     <!-- All css files are included here. -->
     <!-- Bootstrap fremwork main css -->
+
+    
+
+    <!-- All css files are included here. -->
+    
+   
+   
+
+
+
+    <!-- Modernizr JS -->
+    <script src="js/vendor/modernizr-3.11.2.min.js"></script>
     <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
     <!-- This core.css file contents all plugings css file. -->
     <link rel="stylesheet" href="../../static/css/core.css">
@@ -31,6 +43,13 @@
     <script src="../../static/js/vendor/modernizr-3.11.2.min.js"></script>
     <script src="../../static/js/operaciones.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script tipo = "texto/javascript" >function submitForm() {document.getElementById('form1').submit();}</script >
+
+    
+
+    
+   
+
 </head>
 
 <body>
@@ -47,8 +66,8 @@
                         <div class="col-md-3 col-sm-6 col-6">
                             <div class="login-register-area">
                                 <ul>
-                                    <li><a href="/api/login">Login</a></li>
-                                    <li><a href="/api/login/logout">Logout</a></li>
+                                    <li><a href="/api/user/login">Login</a></li>
+                                    <li><a href="/api/user/logout">Logout</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -76,43 +95,14 @@
                                     </li>
                                     <li>
                                         <div class="header-cart">
-                                            <div class="cart-icon" id="nombreCarrito"> <a href="#">Cart<i class="zmdi zmdi-shopping-cart"></i></a>
+                                            <div class="cart-icon" id="nombreCarrito"> 
+                                                <a href="/api/carrito/orden">Cart<i class="zmdi zmdi-shopping-cart"></i></a>
+
                                                 <span class="itemsCarrito">0</span> </div>
-                                            <div class="cart-content-wraper">
-                                                <div class="cart-single-wraper">
-                                                    <div class="cart-img">
-                                                        <a href="#"><img src="images/product/01.jpg.jpeg" alt=""></a>
-                                                    </div>
-                                                    <div class="cart-content">
-                                                        <div class="cart-name"> <a href="#">Aenean Eu Tristique</a>
-                                                        </div>
-                                                        <div class="cart-price"> $70.00 </div>
-                                                        <div class="cart-qty"> Qty: <span>1</span> </div>
-                                                    </div>
-                                                    <div class="remove"> <a href="#"><i class="zmdi zmdi-close"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="cart-single-wraper">
-                                                    <div class="cart-img">
-                                                        <a href="#"><img src="images/product/02.jpg.jpeg" alt=""></a>
-                                                    </div>
-                                                    <div class="cart-content">
-                                                        <div class="cart-name"> <a href="#">Aenean Eu Tristique</a>
-                                                        </div>
-                                                        <div class="cart-price"> $70.00 </div>
-                                                        <div class="cart-qty"> Qty: <span>1</span> </div>
-                                                    </div>
-                                                    <div class="remove"> <a href="#"><i class="zmdi zmdi-close"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="cart-subtotal"> Subtotal: <span>$200.00</span> </div>
-                                                <div class="cart-check-btn">
-                                                    <div class="view-cart"> <a class="btn-def" href="#">View
-                                                            Cart</a> </div>
-                                                    <div class="check-btn"> <a class="btn-def" href="#">Checkout</a>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                                <span id="{{this.idCarrito}}" class="idCarritoTemporal"></span>
+                                            
+
+
                                         </div>
                                     </li>
                                 </ul>
@@ -391,6 +381,13 @@
     <!-- Body main wrapper end -->
 
     <!-- Placed js at the end of the document so the pages load faster -->
+
+ <!-- jquery latest version -->
+  
+
+
+
+
 
     <!-- jquery latest version -->
     <script src="../../static/js/vendor/jquery-3.6.0.min.js"></script>

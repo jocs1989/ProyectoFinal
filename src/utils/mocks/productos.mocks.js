@@ -4,16 +4,17 @@ class Contenedora {
   constructor () {
     this.datos = []
 
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 25; i++) {
       const nombre = faker.commerce.product()
       const producto = {
         _id: faker.database.mongodbObjectId(),
         nombre,
         descripcion: faker.commerce.productDescription(),
         codigo: faker.commerce.price(1000, 5000, 0),
-        url: faker.image.imageUrl(1234, 2345, nombre, true),
+        url: faker.image.fashion(1234, 2345, nombre, true),
         precio: faker.commerce.price(100, 1000, 0),
         stock: faker.commerce.price(0, 100, 0),
+        categoria: faker.commerce.department(),
         timestamp: Date.now()
       }
 

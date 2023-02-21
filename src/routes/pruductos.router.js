@@ -10,13 +10,13 @@ import {
 import { isAdmin } from '../middleware/permisos.js';
 
 const router= Router();
-router.get('/',getAllProducts )
+router.get('/',isAdmin,getAllProducts )
 
-router.get('/:id', getProductsById)
+router.get('/:id',isAdmin, getProductsById)
 
-router.post('/', isAdmin, addProduct)
+router.post('/', addProduct)
 
-router.put('/:id', isAdmin,updateProductById )
+router.put('/:id',updateProductById )
 
 router.delete('/:id', isAdmin, deleteProductById)
 export default router

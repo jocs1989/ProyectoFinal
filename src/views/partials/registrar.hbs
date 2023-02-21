@@ -12,7 +12,7 @@
             </div>
         </div>
         <!--breadcumb area end -->
-
+<form action="/api/user/" method="post" class="login-side" id="form1">
         <!--service idea area are start -->
         <div class="idea-area  ptb-80">
             <div class="container">
@@ -46,7 +46,13 @@
                                         <div class="col-md-6">
                                             <div class="input-box mb-20">
                                                 <label>Phone Number<em>*</em></label>
-                                                <input type="tel" name="phone" class="info" placeholder="Phone Number">
+                                                <input type="tel" name="phone" class="info" placeholder="Phone Number" id="phone">
+                                            </div>
+                                        </div>
+                                          <div class="col-md-6">
+                                            <div class="input-box mb-20">
+                                                <label>Age<em>*</em></label>
+                                                <input type="text" name="edad" class="info" placeholder="Age" id="edad">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -58,38 +64,15 @@
                                         <div class="col-md-6">
                                             <div class="input-box mb-20">
                                                 <label>Confirm Password<em>*</em></label>
-                                                <input type="password" name="password" id="password" required class="info" placeholder="Confirm Password">
+                                                <input type="password" name="tpassword" id="tpassword" required class="info" placeholder="Confirm Password">
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                    <div class="col-md-6">
                                             <div class="input-box mb-20">
-                                                <label>Country <em>*</em></label>
-                                                <select class="selectpicker select-custom" data-live-search="true">
-                                                    <option data-tokens="Mexico">México</option>
-                                                    <option data-tokens="India">India</option>
-                                                    <option data-tokens="Pakistan">Pakistan</option>
-                                                    <option data-tokens="Pakistan">Pakistan</option>
-                                                    <option data-tokens="Srilanka">Srilanka</option>
-                                                    <option data-tokens="Nepal">Nepal</option>
-                                                    <option data-tokens="Butan">Butan</option>
-                                                    <option data-tokens="USA">USA</option>
-                                                    <option data-tokens="England">England</option>
-                                                    <option data-tokens="Brazil">Brazil</option>
-                                                    <option data-tokens="Canada">Canada</option>
-                                                    <option data-tokens="China">China</option>
-                                                    <option data-tokens="Koeria">Koeria</option>
-                                                    <option data-tokens="Soudi">Soudi Arabia</option>
-                                                    <option data-tokens="Spain">Spain</option>
-                                                    <option data-tokens="France">France</option>
-                                                </select>
+                                                <label>Address<em>*</em></label>
+                                                <input type="text" name="direccion" id="direccion" required class="info" placeholder="Address">
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input-box mb-20">
-                                                <label>Town/City <em>*</em></label>
-                                                <input type="text" name="add1" class="info" placeholder="Town/City">
-                                            </div>
-                                        </div>
+                                        </div>                          
                                         
                                          <div class="col-md-6">
                                             <div class="input-box mb-20">
@@ -105,7 +88,7 @@
                                         </div>
                                       
                                         <div class="col-lg-6 col-md-4 text-end">
-                                            <a class="btn-def btn2" href="#">Save</a>
+                                            <a class="btn-def btn2" href="#" onClick="submitForm()" >Save</a>
                                         </div>
                                     </div>
                                 </div>
@@ -127,18 +110,8 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="input-box mb-20">
-                                                <label>Card Number<em>*</em></label>
-                                                <input type="text" name="email" class="info" placeholder="Card Number">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input-box mb-20">
-                                                <label>Security Code<em>*</em></label>
-                                                <input type="text" name="phone" class="info" placeholder="Security Code">
-                                            </div>
-                                        </div>
+                                        
+                                      
                                         <div class="col-md-6">
                                             <div class="input-box mb-20">
                                                 <label>Month <em>*</em></label>
@@ -197,3 +170,4 @@
             </div>
         </div>
         <!--service idea area are end -->
+        </form>

@@ -1,10 +1,10 @@
+import Contenedora from '../../contenedor/contenedora.mongodb.js';
 import {
   Collection,
   opcionSchema,
-} from '../../../middleware/schemas/user.schema.login.js';
-import Contenedora from '../../contenedor/contenedora.mongodb.js';
+} from '../../models/user.models.js';
 
-class Carrito extends Contenedora {
+class Usuario extends Contenedora {
   constructor () {
     super(Collection, opcionSchema)
   }
@@ -33,8 +33,9 @@ class Carrito extends Contenedora {
   }
 
   async saveUser (usuario) {
-    console.log('Entro')
+   
     const valores = await this.save(usuario)
+    
 
     return valores.map((item) => {
       return {
@@ -61,4 +62,4 @@ class Carrito extends Contenedora {
   }
 }
 
-export default Carrito
+export default Usuario

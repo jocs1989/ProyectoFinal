@@ -1,12 +1,9 @@
-import {
-  loggerErr,
-  loggerInfo
-} from '../logger/logger.js'
+import { loggerErr } from '../logger/logger.js';
 
 export function logError(err,req,res,next) {
     
     loggerErr.log('error',err);
-    loggerInfo.log('info',err);
+    //loggerInfo.log('info',err);
     next(err);
 }
 

@@ -1,6 +1,4 @@
-import cors from 'cors';
 import express from 'express';
-import fileUpload from 'express-fileupload';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -10,6 +8,7 @@ import {
   errorHnadler,
   logError,
 } from './middleware/error/handler.error.js';
+import { managerCors } from './middleware/security/security.cors.js';
 import apiRouter from './routes/index.js';
 import managerViews from './views/config.js';
 
@@ -21,11 +20,11 @@ const app = express()
 app.use('/static', express.static(__dirname + '/static')) // agrega metodos estaticos
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(fileUpload())
-//cores
-app.use(
-  cors()
-);
+
+//cors
+managerCors(app)
+//hemlet
+//managerHemlet(app)
 
 // session
 managerSessionRedis(app)

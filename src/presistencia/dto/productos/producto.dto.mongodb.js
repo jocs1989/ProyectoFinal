@@ -7,6 +7,7 @@ export class DtoProducto{
                 descripcion:items.descripcion,
                 precio:items.precio,
                 url:items.url,
+                categoria:items.categoria,
                 stock:items.stock,
                }
            

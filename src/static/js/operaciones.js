@@ -35,6 +35,62 @@ function getProductoById(n) {
     });
 }
 
+function getAllProductCar(){
+  
+  
+  if (document.getElementsByClassName("idCarritoTemporal").length > 0) {
+    const html=""
+    let spanTags = document.getElementsByClassName("idCarritoTemporal");
+    console.log(spanTags)
+    axios
+    .get("http://localhost:8080/api/carrito/"+spanTags[0].id +"/productos")
+    .then(async function (response) {
+      const data = await response.data.articulo
+      
+      
+      data.map(element => {
+        
+        existingTag.appendChild(html);
+        let existingTag = document.getElementById("make_store_car");
+        let newSpanTag = document.createElement("div");        
+        newSpanTag.className = "cart-single-wraper";
+        existingTag = document.getElementsByClassName("cart-single-wraper");
+        newSpanTag = document.createElement("div");
+        newSpanTag.className = "cart-img";
+        existingTag = document.getElementsByClassName("cart-img");
+        newSpanTag = document.createElement(`<a href="#"><img src="${element.url}" alt=""></a>`);
+        existingTag = document.getElementsByClassName("cart-single-wraper");
+        newSpanTag = document.appendChild(`div`);
+        newSpanTag.className = "cart-content";
+        
+
+      `
+        <div class="cart-single-wraper">
+          <div class="cart-img">
+              <a href="#"><img src="${element.url}" alt=""></a>
+          </div>
+          <div class="cart-content">
+              <div class="cart-name"> <a href="#">${element.nombre}</a>
+              </div>
+              <div class="cart-price"> $ ${element.cantidad * element.precio}MXN </div>
+              <div class="cart-qty"> Qty: <span>${element.cantidad}</span> </div>
+          </div>
+          <div class="remove"> <a href="#"><i class="zmdi zmdi-close"></i></a>
+          </div>
+      </div>
+    `
+
+      
+
+    })
+
+    
+    let existingTag = document.getElementById("make_store_car");
+    existingTag.appendChild(html);
+   
+  }
+    )
+}}
 function getNewCar(idArticulo, cantidad = 1) {
   
 
@@ -46,15 +102,7 @@ function getNewCar(idArticulo, cantidad = 1) {
         idArticulo,
         cantidad,
       })
-      .then(async function (response) {
-        console.log('status',response.status);
-        let existingTag = document.getElementById("nombreCarrito");
-        let newSpanTag = document.createElement("span");
-        newSpanTag.id = response.data["0"]._id;
-        newSpanTag.className = "idCarritoTemporal";
-
-        existingTag.appendChild(newSpanTag);
-      }) .then(()=>{
+       .then(()=>{
         const text = document.getElementsByClassName("itemsCarrito")[0].textContent;
       
         document.getElementsByClassName("itemsCarrito")[0].innerHTML = parseInt(text)+1
@@ -65,7 +113,7 @@ function getNewCar(idArticulo, cantidad = 1) {
         console.log(error)
       });
   } else {
-    console.log("Ya hay algo");
+    
 
     let spanTags = document.getElementsByClassName("idCarritoTemporal");
 
