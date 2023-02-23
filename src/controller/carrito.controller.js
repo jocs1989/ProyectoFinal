@@ -51,13 +51,13 @@ export async function mostrarCarritoOrden(req, res) {
         resultado=resultado +i.total
         
       })
-      console.log(resultado)
+  
          
       res.status(200).render('partials/carrito', { artuculos: dtoCarrito,total:resultado})
      
     
   } catch (err) {
-    console.error(err);
+   
     res.status(400).json({ error: err.toString() });
   }
   //

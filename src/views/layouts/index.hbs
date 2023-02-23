@@ -403,6 +403,22 @@
     <script src="../../static/js/plugins.js"></script>
     <!-- Main js file that contents all jQuery plugins activation. -->
     <script src="../../static/js/main.js"></script>
+    <script>
+        const formulario = document.getElementById('mi-formulario');
+        const select = document.getElementById('input-sort');
+           
+         select.addEventListener('change', (event) => {
+            console.log('Entro')
+
+            const valorSeleccionado = select.value;
+            console.log(valorSeleccionado)
+          
+            const ruta = '/api/productos/categoria?filtro=' + valorSeleccionado; // construir la ruta deseada
+            console.log(ruta)
+            formulario.action = ruta;
+             formulario.submit(); // enviar el formulario automáticamente // actualizar la acción del formulario
+        });
+</script>
 
 </body>
 

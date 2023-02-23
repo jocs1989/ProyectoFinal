@@ -14,14 +14,14 @@ export async function startSession(req, res, next) {
 
 export async function endSession(req, res, next) {
   try {
-    console.log('******************************')
+   
     req.session.destroy((err) => {
       if (err) {
         next(Boom.notFound("No existe seccion"));
       }
     });
     res.status(400).redirect("../../api/user/login");
-    console.log('******************************')
+    
   } catch (err) {
     next(Boom.notFound(err.toString()));
   }

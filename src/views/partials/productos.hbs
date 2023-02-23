@@ -17,6 +17,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="shop-area-top">
+                             <form id="mi-formulario" method="post" action=""></form>
                             <div class="row">
                                 <div class="col-xl-4 col-lg-5 col-md-6">
                                     <div class="sort product-show">
@@ -28,21 +29,21 @@
                                             <option value="audi" selected>25</option>
                                         </select>
                                     </div>
+                                   
                                     <div class="sort product-type">
                                         <label>Sort By</label>
-                                        <select id="input-sort">
-                                            <option value="#" selected>Default</option>
-                                            <option value="#">Name (A - Z)</option>
-                                            <option value="#">Name (Z - A)</option>
-                                            <option value="#">Price (Low &gt; High)</option>
-                                            <option value="#">Price (High &gt; Low)</option>
-                                            <option value="#">Rating (Highest)</option>
-                                            <option value="#">Rating (Lowest)</option>
-                                            <option value="#">Model (A - Z)</option>
-                                            <option value="#">Model (Z - A)</option>
+                                        <select id="input-sort" name="input-sort" >
+                                            <option value="0" selected>Default</option>
+                                            <option value="1" >Camisetas y remeras para hombre</option>
+                                            <option value="2">Pantalones para hombre</option>
+                                            <option value="3">Set de dos para hombre</option>
+                                            <option value="4">Jeans para hombre</option>                                           
+                                            <option value="0">All</option>
                                         </select>
                                     </div>
+                                    
                                 </div>
+                                </form>
                                 <div class="col-xl-4 col-lg-3 col-md-2">
                                     <div class="list-grid-view text-center">
                                         <ul class="nav" role="tablist">

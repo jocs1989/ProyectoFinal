@@ -1,6 +1,8 @@
 import { Router } from 'express';
 import multer from 'multer';
 import passport from 'passport';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 import {
   endSession,
@@ -14,7 +16,20 @@ import {
 import { configPassport } from '../middleware/loggin/passport.js';
 import { validateUserLogin } from '../middleware/schemas/schema.user.js';
 
-const upload = multer({ dest: 'file/' });
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Configuración de Multer
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, `${__dirname}/../file` )
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now())
+  }
+})
+
+const upload = multer({ dest: `${__dirname}/../file`,storage: storage  });
 configPassport(passport);
 
 const router = Router();

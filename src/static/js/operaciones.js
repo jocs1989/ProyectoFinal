@@ -91,6 +91,9 @@ function getAllProductCar(){
   }
     )
 }}
+
+
+
 function getNewCar(idArticulo, cantidad = 1) {
   
 
