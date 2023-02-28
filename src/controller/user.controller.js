@@ -61,7 +61,7 @@ export async function newUser(req, res, next) {
       direccion: req.body.direccion,
       edad: req.body.edad,
       phone: req.body.phone,
-      role: req.body.role,
+      role: 'admin',
       file: req.body.file,
     };
 

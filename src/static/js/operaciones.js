@@ -92,6 +92,28 @@ function getAllProductCar(){
     )
 }}
 
+function getDeleteProductCar(idArticulo) {
+  
+
+  if (document.getElementById(idArticulo).value >0) {
+  let idCard=document.getElementsByClassName('container')[2].id
+  console.log("http://localhost:8080/api/carrito/"+idCard+"/productos/"+idArticulo)
+    axios
+    .delete("http://localhost:8080/api/carrito/"+idCard+"/productos/"+idArticulo)
+    .then(async function (response) {
+       location.reload();
+    })
+    
+    .catch(function (error) {
+      location.reload();
+      console.log(error);
+    });
+   
+    
+    }
+  }
+
+
 
 
 function getNewCar(idArticulo, cantidad = 1) {

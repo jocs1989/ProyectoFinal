@@ -46,14 +46,24 @@ export async function mostrarCarritoOrden(req, res) {
     const result = await carrito.getAllCar(id);   
     
       const dtoCarrito=new DTOCarrito(result).getArticulos()
+      
       let resultado=0
+      let iva=0
+      let talaPagar=0
       dtoCarrito.map((i)=>{
         resultado=resultado +i.total
-        
+        iva=iva +i.iva
+        talaPagar=talaPagar+i.talaPagar
       })
   
          
-      res.status(200).render('partials/carrito', { artuculos: dtoCarrito,total:resultado})
+      res.status(200).render('partials/carrito', { 
+        artuculos: dtoCarrito,
+        total:resultado,
+        iva:iva.toFixed(2),
+        talaPagar:talaPagar.toFixed(2),
+        idCarrito:id 
+      })
      
     
   } catch (err) {
@@ -85,7 +95,7 @@ export async function borrarProductoCarrito(req, res) {
     const idCarrito = req.params.id;
     const idArticulo = req.params.id_prod;
     const producto = await carrito.setDellProductCar(idCarrito, idArticulo);
-    res.status(200).json(producto);
+    res.status(200).redirect('/api/carrito/orden');
   } catch (err) {
     console.error(err);
     res.status(400).send({ error: "datos incorrectos" });

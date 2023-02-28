@@ -6,7 +6,7 @@
     </div>
     <ol class="breadcrumb">
       <li class="home"><a
-          title="Go to Home Page"
+          title=container"Go to Home Page"
           href="/api/productos"
         >Home</a></li>
       <li class="active">Cart</li>
@@ -15,40 +15,12 @@
 </div>
 <!--breadcumb area end -->
 <!--cart-checkout-area start -->
-<div class="cart-checkout-area pt-30">
-  <div class="container">
+<div class="cart-checkout-area pt-30 name="" ">
+  <div class="container" id={{idCarrito}}>
     <div class="row">
       <div class="col-lg-12">
         <div class="product-area">
-          <div class="title-tab-product-category row">
-            <div class="col-lg-12 text-center pb-60">
-              <ul class="nav heading-style-3" role="tablist">
-                <li role="presentation"><a
-                    class="active shadow-box"
-                    href="https://template.hasthemes.com/clothing/clothing/cart.html#cart"
-                    aria-controls="cart"
-                    role="tab"
-                    data-bs-toggle="tab"
-                  ><span>01</span>
-                    Shopping cart</a></li>
-                <li role="presentation"><a
-                    class="shadow-box"
-                    href="https://template.hasthemes.com/clothing/clothing/cart.html#checkout"
-                    aria-controls="checkout"
-                    role="tab"
-                    data-bs-toggle="tab"
-                  ><span>02</span>Checkout</a></li>
-                <li role="presentation"><a
-                    class="shadow-box"
-                    href="https://template.hasthemes.com/clothing/clothing/cart.html#complete-order"
-                    aria-controls="complete-order"
-                    role="tab"
-                    data-bs-toggle="tab"
-                  ><span>03</span>
-                    complete-order</a></li>
-              </ul>
-            </div>
-          </div>
+          
           <div class="clearfix"></div>
           <div class="content-tab-product-category pb-70">
             <!-- Tab panes -->
@@ -91,16 +63,15 @@
                                 <div class="product-qty">
                                   <div class="cart-quantity">
                                     <div class="cart-plus-minus">
-                                      <div class="dec qtybutton">-
-                                      </div>
+                                     
                                       <input
                                         value="{{this.cantidad}}"
                                         name="qtybutton"
                                         class="cart-plus-minus-box"
                                         type="text"
+                                        id="{{this._id}}"
                                       />
-                                      <div class="inc qtybutton">+
-                                      </div>
+                                     
                                     </div>
                                   </div>
                                 </div>
@@ -109,8 +80,8 @@
                             <td class="total-price"><strong> ${{this.total}}</strong>
                             </td>
                             <td class="remove-item"><a
-                                href="https://template.hasthemes.com/clothing/clothing/cart.html"
-                              ><i class="fa fa-trash-o"></i></a></td>
+                                href="#"
+                              onClick="getDeleteProductCar('{{this._id}}')"><i class="fa fa-trash-o"></i></a></td>
                           </tr>
                          {{/each}}
                         </tbody>
@@ -121,35 +92,8 @@
                       <div class="row">
                         <div class="col-lg-8 col-md-7">
                           <div class="update-coupne-area">
-                            <div class="update-continue-btn text-end pb-20">
-                              <a
-                                href="https://template.hasthemes.com/clothing/clothing/cart.html"
-                                class="btn-def btn2"
-                              >Update Cart</a>
-                              <a
-                                href="https://template.hasthemes.com/clothing/clothing/cart.html"
-                                class="btn-def btn2"
-                              >Continue Shopping</a>
-                            </div>
-                            <div class="coupn-area">
-                              <div class="catagory-title cat-tit-5 mb-20">
-                                <h3>Coupon</h3>
-                                <p>Enter your coupon code if you have one.
-                                </p>
-                              </div>
-                              <div class="input-box input-box-2 mb-20">
-                                <input
-                                  type="text"
-                                  placeholder="Coupn"
-                                  class="info"
-                                  name="subject"
-                                />
-                              </div>
-                              <a
-                                href="https://template.hasthemes.com/clothing/clothing/cart.html"
-                                class="btn-def btn2"
-                              >Apply Coupn</a>
-                            </div>
+                          
+                           
                           </div>
                         </div>
                         <div class="col-lg-4 col-md-5">
@@ -160,8 +104,8 @@
                               <h3>Cart Totals</h3>
                             </div>
                             <div class="sub-shipping">
-                              <p>Subtotal <span>$150.00</span></p>
-                              <p>Shipping <span>$3.00</span></p>
+                              <p>Subtotal <span>$$ {{total}}</span></p>
+                              <p>Shipping <span>$$ {{iva}}</span></p>
                             </div>
                             <div class="shipping-method text-end">
                               <div class="shipp">
@@ -185,7 +129,7 @@
                                 >Calculate Shipping</a></p>
                             </div>
                             <div class="process-cart-total">
-                              <p>Total <span>$ {{total}}</span></p>
+                              <p>Total <span>$ {{talaPagar}}</span></p>
                             </div>
                             <div class="process-checkout-btn text-end">
                               <a
